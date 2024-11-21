@@ -1,0 +1,6 @@
+gwinferno.pipeline.analysis.per\_event\_log\_bayes\_factors
+===========================================================
+
+.. currentmodule:: gwinferno.pipeline.analysis
+
+.. autofunction:: per_event_log_bayes_factors

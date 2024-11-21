@@ -1,0 +1,35 @@
+gwinferno.pipeline.analysis
+===========================
+
+.. automodule:: gwinferno.pipeline.analysis
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      construct_hierarchical_model
+      detection_efficiency
+      find_map
+      hierarchical_likelihood
+      per_event_log_bayes_factors
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

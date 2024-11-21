@@ -1,0 +1,38 @@
+gwinferno.preprocess.data\_collection
+=====================================
+
+.. automodule:: gwinferno.preprocess.data_collection
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      append_prior_to_processed_catalog
+      convert_component_spins_to_chieff
+      dl_2_prior_on_z
+      load_injection_dataset
+      load_posterior_dataset
+      processed_catalog_dataset_from_dict
+      save_posterior_samples_and_injection_datasets_as_idata
+      unprocessed_catalog_dict_from_metadata
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
