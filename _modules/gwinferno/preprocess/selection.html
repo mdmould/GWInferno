@@ -393,11 +393,11 @@
         <span class="n">injections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ff</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">][:])</span>
 
         <span class="n">analysis_time</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s1">&#39;analysis_time&#39;</span><span class="p">,</span> <span class="s1">&#39;total_analysis_time&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis_time_s&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">&quot;analysis_time&quot;</span><span class="p">,</span> <span class="s2">&quot;total_analysis_time&quot;</span><span class="p">,</span> <span class="s2">&quot;analysis_time_s&quot;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ff</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
-                <span class="n">analysis_time</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="n">analysis_time</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">analysis_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;analysis time not found&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;analysis time not found&quot;</span><span class="p">)</span>
 
     <span class="n">found</span> <span class="o">=</span> <span class="n">injections</span><span class="p">[</span><span class="s2">&quot;semianalytic_observed_phase_maximized_snr_net&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">snr</span>
 
@@ -474,11 +474,11 @@
         <span class="n">total_generated</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;total_generated&quot;</span><span class="p">][()]</span>
 
         <span class="n">analysis_time</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s1">&#39;analysis_time&#39;</span><span class="p">,</span> <span class="s1">&#39;total_analysis_time&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis_time_s&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s2">&quot;analysis_time&quot;</span><span class="p">,</span> <span class="s2">&quot;total_analysis_time&quot;</span><span class="p">,</span> <span class="s2">&quot;analysis_time_s&quot;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ff</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
-                <span class="n">analysis_time</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">/</span> <span class="mf">365.25</span> <span class="o">/</span> <span class="mi">24</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">/</span> <span class="mi">60</span>
+                <span class="n">analysis_time</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">/</span> <span class="mf">365.25</span> <span class="o">/</span> <span class="mi">24</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">/</span> <span class="mi">60</span>
         <span class="k">if</span> <span class="n">analysis_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;analysis time not found&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;analysis time not found&quot;</span><span class="p">)</span>
 
         <span class="n">injs</span><span class="p">[</span><span class="s2">&quot;prior&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;sampling_pdf&quot;</span><span class="p">][()][</span><span class="n">found</span><span class="p">]</span>
 
