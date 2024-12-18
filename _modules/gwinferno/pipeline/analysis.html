@@ -524,7 +524,7 @@
     <span class="n">total_inj</span><span class="p">,</span>
     <span class="n">Nobs</span><span class="p">,</span>
     <span class="n">Tobs</span><span class="p">,</span>
-    <span class="n">surveyed_hypervolume_function</span><span class="p">,</span>
+    <span class="n">surveyed_hypervolume</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">categorical</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">marginal_qs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">indv_weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -576,12 +576,8 @@
 <span class="sd">        Tuple of true astrophysical population fractions.</span>
 <span class="sd">        Shape is number of categorical subpopulations, needs to sum to 1, and is</span>
 <span class="sd">        needed if `categorical=True`. Defaults to `None`.</span>
-<span class="sd">    surv_hypervolume_fct : callable, optional</span>
-<span class="sd">        Callable function to calculate total VT (normalization of the redshift model).</span>
-<span class="sd">        Defaults to `TotalVTCalculator()`.</span>
-<span class="sd">    vtfct_kwargs : dict, optional</span>
-<span class="sd">        Diction of args needed to call `surv_hypervolume_fct()`.</span>
-<span class="sd">        Defaults to `{&quot;lamb&quot;: 0}`.</span>
+<span class="sd">    surveyed_hypervolume : float</span>
+<span class="sd">        Total VT (normalization of the redshift model).</span>
 <span class="sd">    marginalize_selection : bool, optional</span>
 <span class="sd">        Flag to marginalize over uncertainty in selection monte carlo integral.</span>
 <span class="sd">        Defaults to `True`.</span>
@@ -634,7 +630,7 @@
     <span class="n">numpyro</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span><span class="s2">&quot;logBFs&quot;</span><span class="p">,</span> <span class="n">logBFs</span><span class="p">)</span>
     <span class="n">numpyro</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span><span class="s2">&quot;detection_efficiency&quot;</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_det_eff</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">reconstruct_rate</span><span class="p">:</span>
-        <span class="n">total_vt</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span><span class="s2">&quot;surveyed_hypervolume&quot;</span><span class="p">,</span> <span class="n">surveyed_hypervolume_function</span> <span class="o">/</span> <span class="mf">1.0e9</span> <span class="o">*</span> <span class="n">Tobs</span><span class="p">)</span>
+        <span class="n">total_vt</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span><span class="s2">&quot;surveyed_hypervolume&quot;</span><span class="p">,</span> <span class="n">surveyed_hypervolume</span> <span class="o">/</span> <span class="mf">1.0e9</span> <span class="o">*</span> <span class="n">Tobs</span><span class="p">)</span>
         <span class="n">unscaled_rate</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;unscaled_rate&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Gamma</span><span class="p">(</span><span class="n">Nobs</span><span class="p">))</span>
         <span class="n">rate</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span><span class="s2">&quot;rate&quot;</span><span class="p">,</span> <span class="n">unscaled_rate</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_det_eff</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_vt</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">marginalize_selection</span><span class="p">:</span>
@@ -759,8 +755,7 @@
             <span class="n">total_inj</span><span class="o">=</span><span class="n">Ninj</span><span class="p">,</span>
             <span class="n">Nobs</span><span class="o">=</span><span class="n">Nobs</span><span class="p">,</span>
             <span class="n">Tobs</span><span class="o">=</span><span class="n">Tobs</span><span class="p">,</span>
-            <span class="n">surveyed_hypervolume_function</span><span class="o">=</span><span class="k">lambda</span> <span class="o">*</span><span class="n">_</span><span class="p">:</span> <span class="n">pop_models</span><span class="p">[</span><span class="s2">&quot;redshift&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span>
-            <span class="n">vtfct_kwargs</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">surveyed_hypervolume</span><span class="o">=</span><span class="n">pop_models</span><span class="p">[</span><span class="s2">&quot;redshift&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span>
             <span class="n">marginalize_selection</span><span class="o">=</span><span class="n">marginalize_selection</span><span class="p">,</span>
             <span class="n">min_neff_cut</span><span class="o">=</span><span class="n">min_neff_cut</span><span class="p">,</span>
             <span class="n">posterior_predictive_check</span><span class="o">=</span><span class="n">posterior_predictive_check</span><span class="p">,</span>
