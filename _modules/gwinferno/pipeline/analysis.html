@@ -690,7 +690,10 @@
             <span class="p">),</span>
         <span class="p">)</span>
 
-    <span class="n">variance</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span><span class="s2">&quot;variance_log_likelihood&quot;</span><span class="p">,</span> <span class="n">Nobs</span> <span class="o">*</span> <span class="n">variance</span> <span class="o">+</span> <span class="n">variances</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    <span class="n">variance</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span>
+        <span class="s2">&quot;variance_log_likelihood&quot;</span><span class="p">,</span>
+        <span class="n">Nobs</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">variance</span> <span class="o">+</span> <span class="n">variances</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+    <span class="p">)</span>
     <span class="k">if</span> <span class="n">max_variance_cut</span><span class="p">:</span>
         <span class="n">log_l</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span>
             <span class="s2">&quot;variance_less_1&quot;</span><span class="p">,</span>
