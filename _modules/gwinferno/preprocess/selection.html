@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pydata-custom.css?v=c365f546" />
   
   <!-- So that users can add custom icons -->
@@ -379,16 +379,16 @@
 <span class="sd">a module that stores functions for reading in and processing injection search results</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">h5py</span>
-<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
 
 
 <div class="viewcode-block" id="get_o4a_cumulative_injection_dict">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.preprocess.selection.get_o4a_cumulative_injection_dict.html#gwinferno.preprocess.selection.get_o4a_cumulative_injection_dict">[docs]</a>
-<span class="k">def</span> <span class="nf">get_o4a_cumulative_injection_dict</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">param_names</span><span class="p">,</span> <span class="n">ifar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">snr</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_o4a_cumulative_injection_dict</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">param_names</span><span class="p">,</span> <span class="n">ifar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">snr</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates injection dataset with desired parameters and proper prior density calculated.</span>
 
 <span class="sd">    Args:</span>
@@ -461,7 +461,7 @@
 
 <div class="viewcode-block" id="get_o3_cumulative_injection_dict">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.preprocess.selection.get_o3_cumulative_injection_dict.html#gwinferno.preprocess.selection.get_o3_cumulative_injection_dict">[docs]</a>
-<span class="k">def</span> <span class="nf">get_o3_cumulative_injection_dict</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span> <span class="n">param_names</span><span class="p">,</span> <span class="n">ifar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">snr</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">additional_cuts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_o3_cumulative_injection_dict</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span> <span class="n">param_names</span><span class="p">,</span> <span class="n">ifar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">snr</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">additional_cuts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Based from the function load_injection_data() at:</span>
 <span class="sd">    https://git.ligo.org/RatesAndPopulations/gwpopulation_pipe/-/blob/master/gwpopulation_pipe/vt_helper.py#L66</span>
@@ -525,7 +525,7 @@
 
 <div class="viewcode-block" id="resample_injections">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.preprocess.selection.resample_injections.html#gwinferno.preprocess.selection.resample_injections">[docs]</a>
-<span class="k">def</span> <span class="nf">resample_injections</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">model_prob</span><span class="p">,</span> <span class="n">injdata</span><span class="p">,</span> <span class="n">Ndraw</span><span class="p">,</span> <span class="n">param_map</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">resample_injections</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">model_prob</span><span class="p">,</span> <span class="n">injdata</span><span class="p">,</span> <span class="n">Ndraw</span><span class="p">,</span> <span class="n">param_map</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">wts</span> <span class="o">=</span> <span class="n">model_prob</span><span class="p">(</span><span class="n">injdata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">/</span> <span class="n">injdata</span><span class="p">[</span><span class="n">param_map</span><span class="p">[</span><span class="s2">&quot;prior&quot;</span><span class="p">],</span> <span class="p">:]</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">wts</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">wts</span><span class="p">)</span>
     <span class="n">Ndet</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>

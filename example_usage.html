@@ -30,7 +30,7 @@
   <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/pydata-custom.css?v=c365f546" />
   
   <!-- So that users can add custom icons -->
@@ -458,16 +458,16 @@ population parameters to share a model when assuming they are IID (i.e. spin mag
 <section id="example-scripted-model">
 <h2>Example Scripted Model<a class="headerlink" href="#example-scripted-model" title="Link to this heading">#</a></h2>
 <p>Here is how one would define a numpyro probabilistic model in a python file to be passed to GWInferno’s infrastructure</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
-<span class="kn">import</span> <span class="nn">numpyro</span>
-<span class="kn">import</span> <span class="nn">numpyro.distributions</span> <span class="k">as</span> <span class="nn">dist</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpyro</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpyro.distributions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dist</span>
 
-<span class="kn">from</span> <span class="nn">gwinferno.numpyro_distributions</span> <span class="kn">import</span> <span class="n">Powerlaw</span>
-<span class="kn">from</span> <span class="nn">gwinferno.numpyro_distributions</span> <span class="kn">import</span> <span class="n">PowerlawRedshift</span>
-<span class="kn">from</span> <span class="nn">gwinferno.pipeline.analysis</span> <span class="kn">import</span> <span class="n">hierarchical_likelihood</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gwinferno.numpyro_distributions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Powerlaw</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gwinferno.numpyro_distributions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PowerlawRedshift</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gwinferno.pipeline.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">hierarchical_likelihood</span>
 
 
-<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">samps</span><span class="p">,</span> <span class="n">injs</span><span class="p">,</span> <span class="n">Ninj</span><span class="p">,</span> <span class="n">Nobs</span><span class="p">,</span> <span class="n">Tobs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">model</span><span class="p">(</span><span class="n">samps</span><span class="p">,</span> <span class="n">injs</span><span class="p">,</span> <span class="n">Ninj</span><span class="p">,</span> <span class="n">Nobs</span><span class="p">,</span> <span class="n">Tobs</span><span class="p">):</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
     <span class="n">beta</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
     <span class="n">mmin</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;mmin&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>

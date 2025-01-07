@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pydata-custom.css?v=c365f546" />
   
   <!-- So that users can add custom icons -->
@@ -379,22 +379,22 @@
 <span class="sd">a module that stores spline perturbation related population models</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">jax.scipy.integrate</span> <span class="kn">import</span> <span class="n">trapezoid</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax.scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">trapezoid</span>
 
-<span class="kn">from</span> <span class="nn">..distributions</span> <span class="kn">import</span> <span class="n">powerlaw_pdf</span>
-<span class="kn">from</span> <span class="nn">..interpolation</span> <span class="kn">import</span> <span class="n">BSpline</span>
-<span class="kn">from</span> <span class="nn">..interpolation</span> <span class="kn">import</span> <span class="n">LogXBSpline</span>
-<span class="kn">from</span> <span class="nn">.parametric.parametric</span> <span class="kn">import</span> <span class="n">PowerlawRedshiftModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..distributions</span><span class="w"> </span><span class="kn">import</span> <span class="n">powerlaw_pdf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..interpolation</span><span class="w"> </span><span class="kn">import</span> <span class="n">BSpline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..interpolation</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogXBSpline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.parametric.parametric</span><span class="w"> </span><span class="kn">import</span> <span class="n">PowerlawRedshiftModel</span>
 
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryPowerlawRatio">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio">[docs]</a>
-<span class="k">class</span> <span class="nc">PowerlawBasisSplinePrimaryPowerlawRatio</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PowerlawBasisSplinePrimaryPowerlawRatio</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryPowerlawRatio.__init__">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">n_splines_m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">m1pe</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
@@ -444,7 +444,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryPowerlawRatio.smoothing">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.smoothing">[docs]</a>
-    <span class="k">def</span> <span class="nf">smoothing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">delta_m</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">smoothing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ms</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">delta_m</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        smoothing</span>
 
@@ -469,7 +469,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryPowerlawRatio.p_m1">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.p_m1">[docs]</a>
-    <span class="k">def</span> <span class="nf">p_m1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">p_m1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        p_m1 Probability distribution of primary masses</span>
 
@@ -492,7 +492,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryPowerlawRatio.norm_p_m1">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.norm_p_m1">[docs]</a>
-    <span class="k">def</span> <span class="nf">norm_p_m1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">norm_p_m1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        norm_p_m1 Normalized probability distribution of primary mass</span>
 
@@ -512,7 +512,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryPowerlawRatio.p_q">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.p_q">[docs]</a>
-    <span class="k">def</span> <span class="nf">p_q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">p_q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        p_q Probability of mass ratio</span>
 
@@ -530,7 +530,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryPowerlawRatio.__call__">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryPowerlawRatio.__call__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        __call__</span>
 <span class="sd">        Args:</span>
@@ -550,10 +550,10 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryRatio">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio">[docs]</a>
-<span class="k">class</span> <span class="nc">PowerlawBasisSplinePrimaryRatio</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PowerlawBasisSplinePrimaryRatio</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryRatio.__init__">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">n_splines_m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n_splines_q</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">m1pe</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">qpe</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">m1inj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">qinj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -626,7 +626,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryRatio.p_m1">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.p_m1">[docs]</a>
-    <span class="k">def</span> <span class="nf">p_m1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">p_m1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        p_m1 Probability distribution of primary masses</span>
 
@@ -648,7 +648,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryRatio.norm_pm1q">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.norm_pm1q">[docs]</a>
-    <span class="k">def</span> <span class="nf">norm_pm1q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">vs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">norm_pm1q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">vs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        norm_pm1q Normalized (primary mass/mass ratio) distribution</span>
 
@@ -673,7 +673,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryRatio.p_q">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.p_q">[docs]</a>
-    <span class="k">def</span> <span class="nf">p_q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">vs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">p_q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">vs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        p_q Probability of mass ratio</span>
 
@@ -695,7 +695,7 @@
 
 <div class="viewcode-block" id="PowerlawBasisSplinePrimaryRatio.__call__">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.html#gwinferno.models.spline_perturbation.PowerlawBasisSplinePrimaryRatio.__call__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        __call__</span>
 
@@ -719,10 +719,10 @@
 
 <div class="viewcode-block" id="PowerlawSplineRedshiftModel">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.html#gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel">[docs]</a>
-<span class="k">class</span> <span class="nc">PowerlawSplineRedshiftModel</span><span class="p">(</span><span class="n">PowerlawRedshiftModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PowerlawSplineRedshiftModel</span><span class="p">(</span><span class="n">PowerlawRedshiftModel</span><span class="p">):</span>
 <div class="viewcode-block" id="PowerlawSplineRedshiftModel.__init__">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.html#gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_splines</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">z_pe</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">z_inj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">basis</span><span class="p">:</span> <span class="n">LogXBSpline</span> <span class="o">=</span> <span class="n">LogXBSpline</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_splines</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">z_pe</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">z_inj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">basis</span><span class="p">:</span> <span class="n">LogXBSpline</span> <span class="o">=</span> <span class="n">LogXBSpline</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        __init__</span>
 
@@ -743,7 +743,7 @@
 
 <div class="viewcode-block" id="PowerlawSplineRedshiftModel.normalization">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.html#gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.normalization">[docs]</a>
-    <span class="k">def</span> <span class="nf">normalization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lamb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normalization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lamb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        normalization</span>
 
@@ -761,7 +761,7 @@
 
 <div class="viewcode-block" id="PowerlawSplineRedshiftModel.prob">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.html#gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.prob">[docs]</a>
-    <span class="k">def</span> <span class="nf">prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dVdz</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">lamb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dVdz</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">lamb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prob Returns probability</span>
 
@@ -780,7 +780,7 @@
 
 <div class="viewcode-block" id="PowerlawSplineRedshiftModel.__call__">
 <a class="viewcode-back" href="../../../_autosummary/gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.html#gwinferno.models.spline_perturbation.PowerlawSplineRedshiftModel.__call__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">lamb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">lamb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">cs</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        __call__</span>
 

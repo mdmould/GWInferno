@@ -29,7 +29,7 @@
   <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/pydata-custom.css?v=c365f546" />
   
   <!-- So that users can add custom icons -->
@@ -379,12 +379,12 @@
 <span class="sd">a module that stores functions for calculating smoothing priors (i.e. P-Splines)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
 
 
 <div class="viewcode-block" id="apply_difference_prior">
 <a class="viewcode-back" href="../../../../_autosummary/gwinferno.models.bsplines.smoothing.apply_difference_prior.html#gwinferno.models.bsplines.smoothing.apply_difference_prior">[docs]</a>
-<span class="k">def</span> <span class="nf">apply_difference_prior</span><span class="p">(</span><span class="n">coefs</span><span class="p">,</span> <span class="n">inv_var</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_difference_prior</span><span class="p">(</span><span class="n">coefs</span><span class="p">,</span> <span class="n">inv_var</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the P-Spline difference penalty.</span>
 
 <span class="sd">    Parameters</span>
